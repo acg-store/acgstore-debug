@@ -2,10 +2,15 @@
   "name": "acgstore-debug",
   "displayName": "宅之便利店调试工具",
   "description": "宅之便利店调试工具，用于将.json文件推送到手机，方便调试",
-  "version": "0.0.1",
-  "icon": "./resources/icon.png",
+  "version": "0.0.2",
+  "icon": "resources/icon.png",
+  "publisher": "UnicellularSU",
   "engines": {
     "vscode": "^1.71.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acg-store/acgstore-debug.git"
   },
   "categories": [
     "Other"
@@ -28,8 +33,8 @@
         "title": "推送当前插件到手机",
         "category": "ACG-Store",
         "icon": {
-          "dark": "./resources/dark/push.svg",
-          "light": "./resources/light/pull.svg"
+          "dark": "resources/dark/push.svg",
+          "light": "resources/light/pull.svg"
         }
       }
     ],
