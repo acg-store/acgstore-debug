@@ -1,0 +1,75 @@
+{
+  "name": "acgstore-debug",
+  "displayName": "宅之便利店调试工具",
+  "description": "宅之便利店调试工具，用于将.json文件推送到手机，方便调试",
+  "version": "0.0.1",
+  "icon": "./resources/icon.png",
+  "engines": {
+    "vscode": "^1.71.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:acgstore.setHost",
+    "onCommand:acgstore.push",
+    "onLanguage:json"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "acgstore.setHost",
+        "title": "设置宅之便利店调试IP地址",
+        "category": "ACG-Store"
+      },
+      {
+        "command": "acgstore.push",
+        "title": "推送当前插件到手机",
+        "category": "ACG-Store",
+        "icon": {
+          "dark": "./resources/dark/push.svg",
+          "light": "./resources/light/pull.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "acgstore.push",
+          "group": "navigation",
+          "when": "editorFocus && resourceLangId == json"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "宅之便利店配置项",
+      "properties": {
+        "acgstore.host": {
+          "type": "string",
+          "description": "手机IP地址"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.71.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
