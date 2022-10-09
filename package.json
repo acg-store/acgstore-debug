@@ -2,7 +2,7 @@
   "name": "acgstore-debug",
   "displayName": "宅之便利店调试工具",
   "description": "宅之便利店调试工具，用于将.json文件推送到手机，方便调试",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "icon": "resources/icon.png",
   "publisher": "UnicellularSU",
   "engines": {
@@ -34,7 +34,7 @@
         "category": "ACG-Store",
         "icon": {
           "dark": "resources/dark/push.svg",
-          "light": "resources/light/pull.svg"
+          "light": "resources/light/push.svg"
         }
       }
     ],
