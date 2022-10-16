@@ -48,8 +48,10 @@ async function push() {
 			return;
 		}
 		let fileName = vscode.window.activeTextEditor.document.fileName;
-		let code = getCode(fileName)
-		site.script.code = code;
+		let code = getCode(fileName);
+		if (code != null) {
+			site.script.code = code;
+		}
 		vscode.window.activeTextEditor.edit((edit) => {
 			const start = new vscode.Position(0, 0);
 			const end = new vscode.Position(vscode.window.activeTextEditor.document.lineCount + 1, 0);
@@ -57,9 +59,9 @@ async function push() {
 			edit.replace(new vscode.Range(start, end), text);
 		});
 		var success = await connector.push(site);
-		if(success){
+		if (success) {
 			showMessage("发送成功");
-		}else{
+		} else {
 			showError("发送失败，请检查网络");
 		}
 	} catch (e) {
@@ -71,7 +73,7 @@ async function push() {
 function getCode(fileName) {
 	let name = fileName.replace('.json', '.js');
 	if (!fs.existsSync(name)) {
-		throw "没有找到同名.js文件，请将同名.js文件放在当前目录";
+		return null;
 	}
 	var code = fs.readFileSync(name, 'utf-8');
 
